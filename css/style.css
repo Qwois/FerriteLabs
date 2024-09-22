@@ -1,0 +1,209 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    color: #ffffff;
+    overflow-x: hidden;
+}
+
+.fullscreen-bg__video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(8px) brightness(0.7);
+    z-index: -1;
+}
+
+.navbar {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
+
+.bg-dark {
+    background-color: #000000 !important;
+}
+
+.navbar-brand img {
+    margin-right: 10px;
+    width: 40px; /* Add appropriate size */
+    height: 40px;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgba(255, 255, 255, 0.8);
+    transition: color 0.3s ease, transform 0.3s ease;
+    margin: 0 10px;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #DD4814;
+    transform: scale(1.1);
+}
+
+.parallax {
+    height: 150px;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+    gap: 20px;
+}
+
+.card {
+    border-radius: 12px;
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    text-decoration: none;
+    width: 280px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    perspective: 1000px;
+}
+
+.card a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3);
+    transform: rotateY(10deg);
+}
+
+.card-img-top {
+    border-radius: 0;
+    width: 100%;
+    object-fit: cover;
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-title {
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+.card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.2em;
+}
+
+.card:hover .card-overlay {
+    opacity: 1;
+}
+
+#aboutSection {
+    background-color: #ffffff; /* Changed to white background color */
+    padding: 40px;
+    border-radius: 12px;
+}
+
+#aboutSection .text-white {
+    color: #000000; /* Changed to black text color */
+    visibility: visible; /* Added visibility property */
+}
+
+.about-content {
+    background-color: #ffffff; /* Added white background color */
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.about-content p {
+    color: #000000; /* Changed to black text color */
+    visibility: visible; /* Added visibility property */
+}
+
+.footer {
+    background-color: #111;
+    color: #ddd;
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.footer a {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer a:hover {
+    color: #DD4814;
+}
+
+#backToTop {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none;
+    font-size: 24px;
+    background: linear-gradient(145deg, #FF5F6D, #FFC371);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+#backToTop:hover {
+    transform: translateY(-5px);
+    background: linear-gradient(145deg, #FFC371, #FF5F6D);
+}
+
+@media (max-width: 768px) {
+    .card {
+        width: 90%;
+    }
+
+    .card-title {
+        font-size: 1em;
+    }
+
+    .navbar-brand img {
+        width: 30px;
+        height: 30px;
+    }
+}
