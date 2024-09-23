@@ -1,209 +1,424 @@
+/* Base styles */
+:root {
+    --side-padding: 220px;
+}
+
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+    width: 100%;
     font-family: 'Ubuntu', sans-serif;
     color: #ffffff;
-    overflow-x: hidden;
 }
 
-.fullscreen-bg__video {
+body {
+    background-image: url('images/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    min-height: 100vh;
+    min-width: 100vw;
+}
+
+a {
+    color: #0078D7;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Fullscreen video background */
+.fullscreen-bg {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: blur(8px) brightness(0.7);
+    overflow: hidden;
     z-index: -1;
 }
 
-.navbar {
-    background: rgba(0, 0, 0, 0.6);
-    padding: 10px 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-}
-
-.navbar-brand {
-    display: flex;
-    align-items: center;
-}
-
-.bg-dark {
-    background-color: #000000 !important;
-}
-
-.navbar-brand img {
-    margin-right: 10px;
-    width: 40px; /* Add appropriate size */
-    height: 40px;
-}
-
-.navbar-dark .navbar-nav .nav-link {
-    color: rgba(255, 255, 255, 0.8);
-    transition: color 0.3s ease, transform 0.3s ease;
-    margin: 0 10px;
-}
-
-.navbar-dark .navbar-nav .nav-link:hover {
-    color: #DD4814;
-    transform: scale(1.1);
-}
-
-.parallax {
-    height: 150px;
-
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.card-container {
-    display: flex;
-    justify-content: center;
-    padding: 40px 20px;
-    gap: 20px;
-}
-
-.card {
-    border-radius: 12px;
-    background-color: rgba(255, 255, 255, 0.1);
-    overflow: hidden;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    position: relative;
-    text-decoration: none;
-    width: 280px;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    perspective: 1000px;
-}
-
-.card a {
-    text-decoration: none;
-    color: inherit;
-}
-
-.card:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 0 16px 24px rgba(0, 0, 0, 0.3);
-    transform: rotateY(10deg);
-}
-
-.card-img-top {
-    border-radius: 0;
-    width: 100%;
+.fullscreen-bg__video {
+    width: 105%;
+    height: 105%;
     object-fit: cover;
+    filter: blur(15px) brightness(0.8);
+    position: absolute;
+    top: -2.5%;
+    left: -2.5%;
 }
 
-.card-body {
-    padding: 20px;
-}
-
-.card-title {
-    font-size: 1.2em;
-    text-align: center;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-}
-
-.card-overlay {
+.fullscreen-bg::before {
+    content: '';
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    background: url('images/Noise.png');
+    background-size: 50%;
+    background-repeat: repeat;
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Header styles */
+.header-box {
     display: flex;
     justify-content: center;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.87);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.543);
+    backdrop-filter: blur(30px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    color: #fff;
-    font-size: 1.2em;
+    width: 100%;
+    max-width: 1200px;
+    padding: 20px 40px;
+    box-sizing: border-box;
 }
 
-.card:hover .card-overlay {
-    opacity: 1;
+.logo {
+    display: flex;
+    align-items: center;
+    user-select: none;
 }
 
-#aboutSection {
-    background-color: #ffffff; /* Changed to white background color */
-    padding: 40px;
-    border-radius: 12px;
+.logo img {
+    height: 60px;
+    width: auto;
+    margin-right: 15px;
 }
 
-#aboutSection .text-white {
-    color: #000000; /* Changed to black text color */
-    visibility: visible; /* Added visibility property */
+.site-name {
+    font-size: 1.5em;
 }
 
-.about-content {
-    background-color: #ffffff; /* Added white background color */
-    padding: 20px;
-    border-radius: 10px;
+/* Navigation Buttons */
+.nav-buttons {
+    display: flex;
+    align-items: center;
 }
 
-.about-content p {
-    color: #000000; /* Changed to black text color */
-    visibility: visible; /* Added visibility property */
-}
-
-.footer {
-    background-color: #111;
-    color: #ddd;
-    padding: 30px 0;
-    text-align: center;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.3);
-}
-
-.footer a {
-    color: #fff;
-    margin: 0 10px;
-    transition: color 0.3s;
+.custom-button {
+    text-transform: uppercase;
+    font-weight: 500;
     font-size: 1em;
-    text-decoration: none;
+    margin: 0 10px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s;
+    color: white;
+    outline: none;
+    font-family: 'Ubuntu', sans-serif;
+    user-select: none;
 }
 
-.footer a:hover {
+.custom-button:hover, .custom-button.active-button {
     color: #DD4814;
 }
 
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    display: none;
-    font-size: 24px;
-    background: linear-gradient(145deg, #FF5F6D, #FFC371);
-    color: #fff;
-    border: none;
-    border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: transform 0.3s ease, background 0.3s ease;
+/* Dynamic content container */
+#dynamicContent {
+    width: 100%;
+    padding: 100px 0 40px 0;
+    box-sizing: border-box;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-#backToTop:hover {
-    transform: translateY(-5px);
-    background: linear-gradient(145deg, #FFC371, #FF5F6D);
+#dynamicContent.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Content styles */
+.content {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+    text-align: center;
+}
+
+.about-content, .projects-content {
+    font-size: 18px;
+    text-align: justify;
+    padding: 0 20px;
+}
+
+h1 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    user-select: none;
+}
+
+/* Card styles */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    margin-top: 20px;
+}
+
+.card {
+    width: 300px;
+    transition: all 0.6s cubic-bezier(0, 0.73, 0.25, 1);
+    user-select: none;
+    position: relative; /* Добавлено для позиционирования частиц */
+}
+
+.card:hover {
+    transform: scale(1.05) rotate(1deg);
+}
+
+.card-content {
+    display: inline-block;
+}
+
+.card a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    display: block;
+    user-select: none;
+}
+
+.three-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; /* Размещаем за карточкой */
+}
+
+.fullscreen-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('/images/Noise.png');
+    background-size: 20%; /* уменьшает изображение до 50% от оригинального размера */
+    background-repeat: repeat; /* тайлинг */
+    opacity: 0.15;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.card a img {
+    width: 100%;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.24);
+    user-select: none;
+}
+
+.title {
+    text-align: center;
+    padding: 8px 0;
+    font-size: 1.1em;
+}
+
+/* Контейнер для частиц */
+.particle-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Стили для частиц */
+.particle {
+    position: absolute;
+    width: 24px; /* Размер частицы */
+    height: 24px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform, opacity;
+}
+
+
+/* Анимация падения */
+@keyframes fall {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100px) scale(0.5);
+        opacity: 0;
+    }
+}
+
+/* Styles for "LINKS" page */
+.link-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    max-width: 800px;
+    margin: 15px auto 0 auto;
+}
+
+.link-card {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    margin-bottom: 20px;
+    transition: transform 0.2s ease, border 0.2s ease;
+    cursor: pointer;
+}
+
+.link-card:hover {
+    transform: scale(1.02);
+    border: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.link-icon {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+    transition: transform 0.3s ease;
+}
+
+.link-card:hover .link-icon {
+    transform: rotate(15deg);
+}
+
+.link-description {
+    font-size: 1.1em;
+    color: white;
+    text-align: left;
+    flex-grow: 1;
+}
+
+/* Make the entire card clickable */
+.link-card a {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    :root {
+        --side-padding: 50px;
+    }
+
+    .header-content {
+        padding: 15px 30px;
+    }
+
+    .logo img {
+        height: 50px;
+    }
+
+    .site-name {
+        font-size: 1.2em;
+    }
+
+    .custom-button {
+        font-size: 0.9em;
+        margin: 0 8px;
+    }
 }
 
 @media (max-width: 768px) {
-    .card {
-        width: 90%;
+    .header-content {
+        padding: 15px 20px;
     }
 
-    .card-title {
+    .logo img {
+        height: 40px;
+    }
+
+    .site-name {
         font-size: 1em;
     }
 
-    .navbar-brand img {
-        width: 30px;
-        height: 30px;
+    .custom-button {
+        font-size: 0.9em;
+        margin: 0 5px;
+    }
+
+    .content {
+        padding: 0 15px;
+    }
+
+    .about-content, .projects-content {
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 24px;
+    }
+
+    .card {
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    .header-content {
+        padding: 10px 15px;
+    }
+
+    .logo img {
+        height: 35px;
+    }
+
+    .site-name {
+        font-size: 0.9em;
+    }
+
+    .custom-button {
+        font-size: 0.8em;
+        margin: 0 3px;
+    }
+
+    .content {
+        padding: 0 10px;
+    }
+
+    .about-content, .projects-content {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
     }
 }

@@ -2,193 +2,47 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Welcome to Ferrite Labs</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Preload fonts for performance -->
+    <link rel="icon" href="/images/Logo.svg" type="image/png">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet"></noscript>
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
-
+    <!-- Подключаем библиотеку tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2/tsparticles.bundle.min.js"></script>
 </head>
 <body>
-  <video loop muted autoplay class="fullscreen-bg__video" aria-label="Background video">
-      <source src="images/AnusMuvikCSGO.mp4" type="video/mp4">
-  </video>
-  <div class="container-fluid p-0">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-          <div class="container">
-              <a class="navbar-brand" href="#">
-                  <img src="images/Logo.svg" alt="Logo" class="logo-image" height="40"> Ferrite Labs 
-              </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="navbarNav">
-                  <ul class="navbar-nav ml-auto">
-                      <li class="nav-item">
-                          <a class="nav-link" href="#projectsSection" id="showProjects">PROJECTS</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#aboutSection" id="showAbout">ABOUT</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="https://discord.com/" target="_blank">
-                              <i class="fab fa-discord"></i>
-                          </a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="https://store.steampowered.com/search/?developer=FerriteLabs" target="_blank">
-                              <i class="fab fa-steam"></i>
-                          </a>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
-      <div class="parallax"></div>
-      <div class="container mt-5" id="dynamicContent">
-          <h2 class="text-center text-white mb-4" id="projectsSection">Projects:</h2>
-          <div class="row card-container">
-              <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up">
-                  <div class="card h-100">
-                      <a href="https://store.steampowered.com/app/2110820/Granny_Remake/" target="_blank">
-                          <img src="images/GrannyRemakeCapsule.png" class="card-img-top" alt="Project 1">
-                          <div class="card-body">
-                              <h5 class="card-title">Granny Remake</h5>
-                          </div>
-                          <div class="card-overlay">More Info</div>
-                      </a>
-                  </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up">
-                  <div class="card h-100">
-                      <a href="https://store.steampowered.com/app/2206790/Fog_Horror/" target="_blank">
-                          <img src="images/FogHorrorCapsule.png" class="card-img-top" alt="Project 2">
-                          <div class="card-body">
-                              <h5 class="card-title">Fog Horror</h5>
-                          </div>
-                          <div class="card-overlay">More Info</div>
-                      </a>
-                  </div>
-              </div>
-              <div class="col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up">
-                  <div class="card h-100">
-                      <a href="#" target="_blank">
-                          <img src="images/SodiumCapsule.png" class="card-img-top" alt="Project 3">
-                          <div class="card-body">
-                              <h5 class="card-title">Coming soon...</h5>
-                          </div>
-                          <div class="card-overlay">No Info</div>
-                      </a>
-                  </div>
-              </div>
-          </div>
-      </div>
-
-      <div class="container mt-5" id="aboutSection" data-aos="fade-up">
-        <h2 class="text-center mb-4 text-white">About Us</h2>
-        <div class="row">
-            <div class="col-md-6">
-                <img src="images/about-image.png" alt="About Us" class="img-fluid rounded" style="border: 2px solid #DD4814;">
-            </div>
-            <div class="col-md-6 text-white">
-                <h3>Who We Are</h3>
-                <p>Ferrite Labs is a passionate team of developers and creators dedicated to crafting innovative gaming experiences. Our mission is to blend technology with creativity, pushing the boundaries of what games can achieve.</p>
-                
-                <h3>Our Journey</h3>
-                <p>Founded in 2020, Ferrite Labs started as a small group of enthusiasts. Over the years, we've grown into a vibrant team that thrives on collaboration and creativity. Each project we undertake reflects our commitment to quality and innovation.</p>
-                
-                <h3>Our Values</h3>
-                <ul>
-                    <li>Creativity: We believe in the power of imagination to create extraordinary experiences.</li>
-                    <li>Community: Our players are at the heart of everything we do. We value their feedback and support.</li>
-                    <li>Integrity: We commit to transparency and honesty in our processes and interactions.</li>
-                </ul>
-                
-                <h3>Join Us</h3>
-                <p>We're always looking for talented individuals who share our passion for gaming. If you're interested in joining our team or collaborating on exciting projects, feel free to reach out!</p>
-            </div>
-        </div>
-    
-        <div class="row mt-5">
-            <div class="col-12">
-                <h3 class="text-center mb-4">What Our Players Say</h3>
-                <div class="testimonial text-white">
-                    <blockquote class="blockquote">
-                        <p>"Ferrite Labs has created some of the most engaging games I've ever played. Their attention to detail is exceptional!"</p>
-                        <footer class="blockquote-footer">- Alex, Game Enthusiast</footer>
-                    </blockquote>
-                    <blockquote class="blockquote">
-                        <p>"The creativity and innovation in their projects are truly inspiring. Can't wait to see what they come up with next!"</p>
-                        <footer class="blockquote-footer">- Jamie, Indie Game Developer</footer>
-                    </blockquote>
-                </div>
-            </div>
-        </div>
+    <!-- Video Background -->
+    <div class="fullscreen-bg">
+        <video loop muted autoplay class="fullscreen-bg__video">
+            <source src="images/AnusMuvikCSGO.mp4" type="video/mp4">
+        </video>
     </div>
-      
-      <footer class="footer mt-5">
-          <div class="container">
-              <p>© 2024 Ferrite Labs. All rights reserved.</p>
-              <p>Follow us on: 
-                  <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
-                  <a href="https://facebook.com" target="_blank"><i class="fab fa-facebook-f"></i></a>
-                  <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
-                  <a href="https://telegram.org" target="_blank"><i class="fab fa-telegram"></i></a>
-              </p>
-          </div>
-      </footer>
-  </div>
-  <button id="backToTop" style="display: none;">
-      <i class="fas fa-arrow-up"></i>
-  </button>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Header -->
+    <header class="header-box">
+        <div class="header-content">
+            <!-- Logo and Site Name -->
+            <div class="logo">
+                <img src="images/Logo.svg" alt="Logo" class="logo-image">
+                <div class="site-name">Ferrite<br/>Labs</div>
+            </div>
 
-  <script>
-    $(document).ready(function () {
-        AOS.init();
+            <!-- Navigation Buttons -->
+            <nav class="nav-buttons">
+                <button class="custom-button" id="showProjects">PROJECTS</button>
+                <button class="custom-button" id="showAbout">ABOUT</button>
+                <button class="custom-button" id="showLinks">LINKS</button>
+            </nav>
+        </div>
+    </header>
 
-        // Smooth scroll for anchor links
-        $(document).on('click', 'a.nav-link', function(event) {
-            event.preventDefault();
-            var target = $(this).attr('href');
-            $('html, body').animate({
-                scrollTop: $(target).offset().top - 60
-            }, 1000);
-        });
+    <!-- Dynamic Content -->
+    <main id="dynamicContent">
+        <!-- Content will be dynamically inserted here -->
+    </main>
 
-        // Card hover animation
-        $('.card').hover(
-            function() {
-                $(this).css('transform', 'scale(1.05)');
-                $(this).find('.card-overlay').fadeIn();
-            },
-            function() {
-                $(this).css('transform', 'scale(1)');
-                $(this).find('.card-overlay').fadeOut();
-            }
-        );
-
-        // Back to top button
-        $(window).scroll(function() {
-            if ($(this).scrollTop() > 100) {
-                $('#backToTop').fadeIn();
-            } else {
-                $('#backToTop').fadeOut();
-            }
-        });
-
-        $('#backToTop').click(function() {
-            $('html, body').animate({
-                scrollTop: 0
-            }, 800);
-            return false;
-        });
-    });
-</script>
+    <script src="js/script.js"></script>
 </body>
 </html>

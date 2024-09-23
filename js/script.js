@@ -5,94 +5,246 @@ function showProjectsContent() {
     if (!AnimationProgress && currentActive !== 'projects') {
         currentActive = 'projects';
         AnimationProgress = true;
-        setButtonActive('showProjects'); // Установить кнопку как активную
+        setButtonActive('showProjects');
 
         var content = document.getElementById('dynamicContent');
-        content.style.opacity = '0';
-        content.style.transform = 'translateY(20px)';
+        content.classList.remove('active');
 
         setTimeout(function() {
             content.innerHTML = `
-                <header>
+                <section class="content">
                     <h1>PROJECTS:</h1>
-                </header>
-                <div class="card-container">
-                    <div class="card">
-                        <a href="#" data-toggle="modal" data-target="#project1Modal">
-                            <img src="images/GrannyRemakeCapsule.png" alt="Granny Remake">
-                            <div class="title">Granny Remake</div>
-                        </a>
+                    <div class="card-container">
+                        <div class="card">
+                            <a href="https://store.steampowered.com/app/2110820/Granny_Remake/" target="_blank" rel="noopener noreferrer">
+                                <div class="card-content">
+                                    <img src="images/GrannyRemakeCapsule.png" alt="Granny Remake">
+                                    <div class="title">Granny Remake</div>
+                                </div>
+                            </a>
+                            <!-- Контейнер для частиц -->
+                            <div class="particle-container"></div>
+                        </div>
+                        <div class="card">
+                            <a href="https://store.steampowered.com/app/2753940/Burger_Takeout/" target="_blank" rel="noopener noreferrer">
+                                <div class="card-content">
+                                    <img src="images/BurgerTakeoutCapsule.jpg" alt="Burger Takeout">
+                                    <div class="title">Burger Takeout</div>
+                                </div>
+                            </a>
+                            <!-- Контейнер для частиц -->
+                            <div class="particle-container"></div>
+                        </div>
                     </div>
-                    <div class="card">
-                        <a href="#" data-toggle="modal" data-target="#project2Modal">
-                            <img src="images/FogHorrorCapsule.png" alt="Fog Horror">
-                            <div class="title">Fog Horror</div>
-                        </a>
-                    </div>
-                    <div class="card">
-                        <a href="#" data-toggle="modal" data-target="#project3Modal">
-                            <img src="images/SodiumCapsule.png" alt="Sodium Sandbox">
-                            <div class="title">Sodium Sandbox</div>
-                        </a>
-                    </div>
-                </div>
+                </section>
             `;
-            content.style.opacity = '1';
-            content.style.transform = 'translateY(0px)';
+            content.classList.add('active');
+            AnimationProgress = false;
+
+            // Добавляем обработчики событий для карточек после динамической вставки контента
+            addCardHoverEffects();
+        }, 200);
+    }
+}
+
+function showLinksContent() {
+    if (!AnimationProgress && currentActive !== 'links') {
+        currentActive = 'links';
+        AnimationProgress = true;
+        setButtonActive('showLinks');
+
+        var content = document.getElementById('dynamicContent');
+        content.classList.remove('active');
+
+        setTimeout(function() {
+            content.innerHTML = `
+                <section class="content">
+                    <h1>LINKS:</h1>
+                    <div class="link-card-container">
+                        <div class="link-card">
+                            <a href="https://store.steampowered.com/search/?developer=FerriteLabs" target="_blank">
+                                <img src="images/steam-1.svg" alt="Steam" class="link-icon">
+                                <div class="link-description">
+                                    Check out our games on Steam.
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="link-card">
+                            <a href="https://discord.com/invite/ynSd9EhVtM" target="_blank">
+                                <img src="images/discord-mark-white.svg" alt="Discord" class="link-icon">
+                                <div class="link-description">
+                                    Join our Discord server for updates, discussions, and more.
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="link-card">
+                            <a href="https://t.me/FerriteLabs" target="_blank">
+                                <img src="images/Telegram-logo.png" alt="Telegram" class="link-icon">
+                                <div class="link-description">
+                                    Join our Telegram channel for updates, discussions, and giveaways.
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+            `;
+            content.classList.add('active');
             AnimationProgress = false;
         }, 200);
     }
 }
 
 document.getElementById('showProjects').addEventListener('click', showProjectsContent);
-
 document.getElementById('showAbout').addEventListener('click', function() {
     if (!AnimationProgress && currentActive !== 'about') {
         currentActive = 'about';
         AnimationProgress = true;
-        setButtonActive('showAbout'); // Установить кнопку как активную
+        setButtonActive('showAbout');
 
         var content = document.getElementById('dynamicContent');
-        content.style.opacity = '0';
-        content.style.transform = 'translateY(20px)';
+        content.classList.remove('active');
 
         setTimeout(function() {
             content.innerHTML = `
-                <h2 class="text-center mb-4 text-white">About Us</h2>
-                <div class="row">
-                    <div class="col-md-6">
-                        <img src="images/about-image.png" alt="About Us" class="img-fluid rounded" style="border: 2px solid #DD4814;">
+                <section class="content">
+                    <h1>ABOUT:</h1>
+                    <div class="about-content">
+                        <p>
+                            We are Ferrite Labs, a passionate team dedicated to creating immersive gaming experiences.
+                        </p>
+                        <p>
+                            From indie projects to large-scale productions, we strive to deliver high-quality content that resonates with players around the world.
+                        </p>
                     </div>
-                    <div class="col-md-6 text-white">
-                        <h3>Who We Are</h3>
-                        <p>Ferrite Labs is a passionate team of developers and creators dedicated to crafting innovative gaming experiences. Our mission is to blend technology with creativity, pushing the boundaries of what games can achieve.</p>
-                        <h3>Our Journey</h3>
-                        <p>Founded in 2020, Ferrite Labs started as a small group of enthusiasts. Over the years, we've grown into a vibrant team that thrives on collaboration and creativity. Each project we undertake reflects our commitment to quality and innovation.</p>
-                        <h3>Our Values</h3>
-                        <ul>
-                            <li>Creativity: We believe in the power of imagination to create extraordinary experiences.</li>
-                            <li>Community: Our players are at the heart of everything we do. We value their feedback and support.</li>
-                            <li>Integrity: We commit to transparency and honesty in our processes and interactions.</li>
-                        </ul>
-                    </div>
-                </div>
+                </section>
             `;
-            content.style.opacity = '1';
-            content.style.transform = 'translateY(0px)';
+            content.classList.add('active');
             AnimationProgress = false;
         }, 200);
     }
 });
 
+document.getElementById('showLinks').addEventListener('click', showLinksContent);
+
 function setButtonActive(id) {
-    // Сброс класса active-button у всех кнопок
-    document.querySelectorAll('.buttons .custom-button').forEach(button => {
+    document.querySelectorAll('.nav-buttons .custom-button').forEach(button => {
         button.classList.remove('active-button');
     });
-
-    // Установка класса active-button на активную кнопку
     document.getElementById(id).classList.add('active-button');
 }
 
-// Инициализация контента "PROJECTS" при загрузке страницы
-document.addEventListener('DOMContentLoaded', showProjectsContent);
+document.addEventListener('DOMContentLoaded', function() {
+    showProjectsContent();
+});
+
+
+
+// Функция для получения случайного цвета
+function getRandomColor() {
+    const colors = ['#FFD700', '#FF69B4', '#ADFF2F', '#1E90FF', '#FF4500'];
+    return colors[Math.floor(Math.random() * colors.length)];
+}
+
+
+
+// Вызываем функцию при загрузке страницы для первоначальных карточек
+addCardHoverEffects();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Функция для создания сцены с частицами
+function createParticleEffect(container) {
+    // Создаем сцену
+    const scene = new THREE.Scene();
+
+    // Создаем камеру
+    const camera = new THREE.PerspectiveCamera(75, container.clientWidth / container.clientHeight, 0.1, 1000);
+    camera.position.z = 5;
+
+    // Создаем рендерер
+    const renderer = new THREE.WebGLRenderer({ alpha: true });
+    renderer.setSize(container.clientWidth, container.clientHeight);
+    container.appendChild(renderer.domElement);
+
+    // Создаем геометрию частиц
+    const particles = new THREE.BufferGeometry();
+    const particleCount = 500;
+    const positions = [];
+
+    for (let i = 0; i < particleCount; i++) {
+        positions.push((Math.random() - 0.5) * 2); // x
+        positions.push((Math.random() - 0.5) * 2); // y
+        positions.push((Math.random() - 0.5) * 2); // z
+    }
+
+    particles.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+
+    // Создаем материал для частиц
+    const particleMaterial = new THREE.PointsMaterial({
+        color: 0xffffff,
+        size: 0.05,
+    });
+
+    // Создаем облако частиц
+    const particleSystem = new THREE.Points(particles, particleMaterial);
+    scene.add(particleSystem);
+
+    // Анимация
+    function animate() {
+        requestAnimationFrame(animate);
+
+        // Анимируем частицы
+        particleSystem.rotation.y += 0.001;
+
+        renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Обработка изменения размера контейнера
+    window.addEventListener('resize', onWindowResize, false);
+
+    function onWindowResize() {
+        camera.aspect = container.clientWidth / container.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(container.clientWidth, container.clientHeight);
+    }
+}
+
+// Добавляем эффект к карточкам при наведении
+function addCardHoverEffects() {
+    document.querySelectorAll('.card').forEach(card => {
+        const particleContainer = document.createElement('div');
+        particleContainer.classList.add('three-container');
+        card.appendChild(particleContainer);
+
+        card.addEventListener('mouseenter', function() {
+            createParticleEffect(particleContainer);
+        });
+
+        card.addEventListener('mouseleave', function() {
+            // Удаляем эффект при уходе курсора
+            particleContainer.innerHTML = '';
+        });
+    });
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    addCardHoverEffects();
+});
